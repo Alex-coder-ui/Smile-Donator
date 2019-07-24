@@ -5,11 +5,9 @@ import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import Contacts from './Contacts.js';
 import Donate from './Donate.js';
 import  {Dates} from './Calendar.js'
+import Index from './Homepage.js'
+import './css/style.css'
 
-
-function Index() {
-    return <h2>Home</h2>;
-}
 
 
 

@@ -3,7 +3,12 @@ import React, {Component} from 'react';
 export default class Donate extends Component {
 
     render(){
-        return <h2>Donate</h2>;
+        return <h2>
+            Donate
+            <h6>oops!
+                ther`s nothing here...yet
+            </h6>
+        </h2>;
     }
 
 }
