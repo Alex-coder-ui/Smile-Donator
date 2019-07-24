@@ -4,7 +4,7 @@ import { Navbar, Nav, NavItem, NavDropdown,MenuItem } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link} from "react-router-dom";
 import Contacts from './Contacts.js';
 import Donate from './Donate.js';
-import Calendar from './Calendar.js';
+import  {Dates} from './Calendar.js'
 
 
 function Index() {
@@ -38,7 +38,7 @@ export class Header extends Component {
                 <Route path="/" exact component={Index} />
                 <Route path="/Contacts/" component={Contacts} />
                 <Route path="/Donate/" component={Donate} />
-                <Route path="Calendar" exact component={Calendar} />
+                <Route path="/Calendar/" exact component={Dates} />
             </div>
             </Router>
         );

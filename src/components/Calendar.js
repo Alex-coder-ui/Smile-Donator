@@ -1,30 +1,21 @@
-import React, {Component} from 'react';
-import ReactLightCalendar from '@lls/react-light-calendar'
-import '@lls/react-light-calendar/dist/index.css'
+import React, { Component } from 'react';
+import Calendar from 'react-calendar';
 
-const DAY_LABELS = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche']
-const MONTH_LABELS = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aûot', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
-
-
-export default class Calendar extends Component {
-    constructor(props) {
-        super(props)
-        const date = new Date()
-        const startDate = date.getTime()
-        this.state = {
-            startDate, // Today
-            endDate: new Date(startDate).setDate(date.getDate() + 6) // Today + 6 days
-        }
+export class Dates extends Component {
+    state = {
+        date: new Date(),
     }
 
-    onChange = (startDate, endDate) => this.setState({ startDate, endDate })
+    onChange = date => this.setState({ date })
 
-    render = () => {
-
-        const { startDate, endDate } = this.state
-
+    render() {
         return (
-            <ReactLightCalendar startDate={startDate} endDate={endDate} onChange={this.onChange} range displayTime />
-        )
+            <div>
+                <Calendar
+                    onChange={this.onChange}
+                    value={this.state.date}
+                />
+            </div>
+        );
     }
 }
