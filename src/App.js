@@ -1,17 +1,23 @@
-import React, {Component} from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import {Header} from './components/navbar'
+import React, {Component} from 'react'
+import 'bootstrap/dist/css/bootstrap.css'
+import Contacts from './components/Contacts'
+import Donate from './components/Donate'
+import  Dates from './components/Dates'
+import Homepage from './components/Homepage'
+import { BrowserRouter,HashRouter,Route,Switch } from "react-router-dom"
+
 
 class App extends Component{
 
     render() {
         return (
-            <div className="App">
-                <div>
-                <Header className="App-header">
-                </Header>
-                </div>
-            </div>
+            <Switch>
+                <Route exact path="/"  component={Homepage} />
+                <Route  path="/Contacts" component={Contacts} />
+                <Route  path="/Donate" component={Donate} />
+                <Route  path="/Calendar"  component={Dates} />
+            </Switch>
+
         );
     }
 }

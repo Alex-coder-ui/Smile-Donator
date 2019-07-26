@@ -1,8 +1,8 @@
 It's simple SPA, that created just for fun! Have a nice day!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run this application please install the node.js.
 
-## Available Scripts
+In the command prompt window, use command "cd" to change current folder.
 
 In the project directory, you can run:
 

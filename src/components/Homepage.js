@@ -1,10 +1,16 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import Header from "./Header"
+import { BrowserRouter as Router, Route, Link,  Switch, BrowserRouter } from "react-router-dom";
 
 
 export default class Homepage extends Component {
 
     render(){
         return (
+            <div className="App">
+                <div>
+                    <Header className="App-header">
+                    </Header>
                 <section id="home">
                     <div className="container">
                         <div className="row">
@@ -24,6 +30,8 @@ export default class Homepage extends Component {
                         </div>
                     </div>
                 </section>
+                </div>
+            </div>
                 )
                 }
 }

@@ -1,10 +1,15 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import { BrowserRouter as Router, Route, Link,  Switch, BrowserRouter } from "react-router-dom"
+import Header from "./Header";
 
 
 export default class Contacts extends Component {
 
     render(){
-        return <div>
+        return (
+            <div>
+                <Header className="App-header">
+                </Header>
             <section id="contact">
                 <div className="container">
                     <div className="row">
@@ -60,6 +65,8 @@ export default class Contacts extends Component {
                 </div>
             </footer>
         </div>
+
+        );
 
     }
 }
