@@ -1,14 +1,10 @@
 import React, {Component} from 'react'
-import { BrowserRouter as Router, Route, Link,  Switch, BrowserRouter } from "react-router-dom";
-import Header from "./Header";
 
 export default class Donate extends Component {
 
-    render(){
+    render() {
         return (
-            <div>
-                <Header className="App-header">
-                </Header>
+            <div className={"Donate"}>
             Donate
             <h6>oops!
                 ther`s nothing here...yet

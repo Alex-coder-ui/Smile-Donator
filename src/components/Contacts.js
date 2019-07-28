@@ -1,70 +1,90 @@
 import React, {Component} from 'react'
-import { BrowserRouter as Router, Route, Link,  Switch, BrowserRouter } from "react-router-dom"
-import Header from "./Header";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/es/FormControl";
+import Button from "react-bootstrap/Button";
 
 
 export default class Contacts extends Component {
 
-    render(){
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: "",
+            name: "",
+            email: "",
+            message: ""
+        };
+
+        this.handleNameChange = this.handleNameChange.bind(this)
+        this.submitButtonClick = this.submitButtonClick.bind(this)
+
+    }
+
+
+    handleNameChange(event) {
+        console.log('handle name change');
+
+        this.setState({
+            name: event.target.value
+        });
+
+        console.log("New state " + this.state.name);
+    }
+
+
+    submitButtonClick(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value
+        })
+        console.log('A name was submitted: ' + this.state.value)
+    }
+
+
+    render() {
+
+        const name = this.state.name;
         return (
-            <div>
-                <Header className="App-header">
-                </Header>
-            <section id="contact">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <h2 className="wow bounceIn" data-wow-offset="50"
-                                data-wow-delay="0.3s">CONTACT <span>AWESOME</span></h2>
-                        </div>
-                        <div className="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-offset="50"
-                             data-wow-delay="0.9s">
-                            <form action="#" method="post">
-                                <label>NAME</label>
-                                <input name="fullname" type="text" className="form-control" id="fullname"/>
+            <div className="Input-group">
 
-                                    <label>EMAIL</label>
-                                    <input name="email" type="email" className="form-control" id="email"/>
+                <InputGroup className="mb-3" style={{width: "60%",margin: "15px", padding: "auto"}}>
+                    <InputGroup.Prepend>
+                        <InputGroup.Text id="inputGroup-name">Name</InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl
 
-                                        <label>MESSAGE</label>
-                                        <textarea name="message" rows="4" className="form-control"
-                                                  id="message">hello</textarea>
+                        onChange={this.handleNameChange}
+                        value={name}
+                        aria-label="Name"
+                        aria-describedby="inputGroup-name"
+                    />
+                </InputGroup>
+                <br/>
 
-                                        <input type="submit" className="form-control"/>
-                            </form>
-                        </div>
-                        <div className="col-md-6 col-sm-6 col-xs-12 wow fadeInRight" data-wow-offset="50"
-                             data-wow-delay="0.6s">
-                            <address>
-                                <p className="address-title">OUR ADDRESS</p>
-                                <span>awesome app etc pre alpha0.79</span>
-                                <p><i className="fa fa-phone">phone</i> 010-020-0340</p>
-                                <p><i className="fa fa-envelope-o">email</i> awesome@company.com</p>
-                                <p><i className="fa fa-map-marker">adress</i> 663 New Walk Roadside, Birdeye View, GO 11020
-                                </p>
-                            </address>
-                            <ul className="social-icon">
-                                <li><h4>WE ARE UnSOCIAL</h4></li>
-                                <li><a href="#" className="fa fa-facebook">there`s no Facebook</a></li>
-                                <li><a href="#" className="fa fa-twitter">there`s no Twitter</a></li>
-                                <li><a href="#" className="fa fa-instagram">there`s no Instagram</a></li>
-                                <li><a href="https://vk.com/" className="alert-link">Just VK lin but it doesn`t work</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <footer id="copyright">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-12 text-center">
-                            <p className="wow bounceIn" data-wow-offset="50" data-wow-delay="0.3s">
-                                Copyright &copy; 2084 Company Name</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
+                <InputGroup className="mb-3" style={{width: "60%",margin: "15px", padding: "auto"}}>
+                    <InputGroup.Prepend>
+                        <InputGroup.Text id="inputGroup-email">Email</InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl
+                        aria-label="Email"
+                        aria-describedby="inputGroup-email"
+                    />
+                </InputGroup>
+                <br/>
+
+
+                <InputGroup style={{width: "60%", margin: "15px", padding: "auto"}}>
+                    <InputGroup.Prepend>
+                        <InputGroup.Text id="inputGroup-comment">Comment</InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl as="textarea" aria-label="Comment" aria-describedby="inputGroup-comment"/>
+                </InputGroup>
+
+                <Button variant="primary" onClick={this.submitButtonClick} style={{ padding: "15px",  margin: "15px"}}>Save changes</Button>
+            </div>
+
 
         );
 
