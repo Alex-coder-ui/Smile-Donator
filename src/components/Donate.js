@@ -44,31 +44,28 @@ export default class Donate extends Component {
 
 
     submitButtonClick(event) {
-            let validated = event.target.checkValidity();
-            event.preventDefault();
+        let validated = event.target.checkValidity();
+        event.preventDefault();
 
-            if (this.state.age > 1) {
-                this.setState
-                ({validated:true});
-                if (validated) {
-                    let comment = {
-                        age: this.state.age
-                    };
 
-                    axios.post('/comment', comment)
-                        .then(function (response) {
-                            console.log('A smile was submitted: ' + comment);
-                            console.log(response);
-                        })
-                        .catch(function (error) {
-                            console.log(error);
-                        });
+            if (validated) {
+                let comment = {
+                    age: this.state.age
+                };
 
-                    this.setState({validated: true});
-                } else {
-                    console.log('Nothing was submitted');
-                    this.setState({validated: true});
-                }
+                axios.post('/comment', comment)
+                    .then(function (response) {
+                        console.log('A smile was submitted: ' + comment);
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+
+                this.setState({validated: true});
+            } else {
+                console.log('Nothing was submitted');
+                this.setState({validated: true});
             }
 
 
@@ -79,7 +76,7 @@ export default class Donate extends Component {
     render() {
 
         const validated = this.state.validated;
-        const age = this.state.age;
+
 
 
         return (
@@ -113,12 +110,12 @@ export default class Donate extends Component {
                     <Form.Group style={{padding: "10px"}}>
                         <Form.Check
                             required
-                            label="Yes I`m shore that I older than 18"
+                            label="Yes I`m shure that I older than 18"
                             feedback="You must be 18 or older."
                         />
                     </Form.Group>
 
-                    <Button type="submit" style={{padding: "15px", margin: "18px"}}>Send me a smile</Button>
+                    <Button type="submit" style={{padding: "15px", margin: "18px"}} >Send me a smile</Button>
                 </Form>
             </div>)
 

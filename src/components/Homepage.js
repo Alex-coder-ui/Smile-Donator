@@ -15,7 +15,7 @@ export default class Homepage extends Component {
                                      <span> Definately...</span></h1>
                                 <div className="element">
                                     <div className="sub-element">Hello, this is SmileDonator</div>
-                                    <div className="sub-element">Awesome SPA pre alpha 0.19
+                                    <div className="sub-element">Awesome SPA  beta 0.19
                                     </div>
                                     <div className="sub-element">Click the button bellow, to tune on to the...
                                     </div>
