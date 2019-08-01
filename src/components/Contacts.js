@@ -3,6 +3,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
+
 import axios from 'axios'
 
 
@@ -17,9 +18,9 @@ export default class Contacts extends Component {
             validated: false
         };
 
-        this.handleNameChange = this.handleNameChange.bind(this)
-        this.handleEmailChange = this.handleEmailChange.bind(this)
-        this.handleCommentChange = this.handleCommentChange.bind(this)
+        this.handleNameChange = this.handleNameChange.bind(this);
+        this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handleCommentChange = this.handleCommentChange.bind(this);
         this.submitButtonClick = this.submitButtonClick.bind(this)
 
     }
@@ -83,7 +84,7 @@ export default class Contacts extends Component {
 
         return (
             <div className="Input-group">
-                <Form noValidate validated={validated} onSubmit={this.submitButtonClick}>
+                <Form noValidate validated={validated} onSubmit={this.submitButtonClick} >
                     <Form.Row>
                         <Form.Group md="4" controlId="validationCustom01"
                                     style={{width: "60%", margin: "15px", padding: "auto"}}>

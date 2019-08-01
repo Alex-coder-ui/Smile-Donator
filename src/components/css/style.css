@@ -82,8 +82,11 @@ h2 span {
 }
 
 /* end Contacts */
+
 /* start Donate */
 .Donate {
+
+
     background: url('../images/bg3.jpg') no-repeat;
     background-size: cover;
     padding-top: 100px;
@@ -91,6 +94,7 @@ h2 span {
     min-height: 700px;
 
 }
+
 
 /* end Donate */
 
