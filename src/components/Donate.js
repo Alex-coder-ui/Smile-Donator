@@ -12,14 +12,13 @@ export default class Donate extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            age: "",
+            birthday: "",
             validated: false,
             selectedDay: null
         };
         this.handleDayClick = this.handleDayClick.bind(this);
         this.handleAgeChange = this.handleAgeChange.bind(this);
         this.submitButtonClick = this.submitButtonClick.bind(this);
-        this.getAge = this.getAge.bind(this);
 
     }
 
@@ -36,26 +35,23 @@ export default class Donate extends Component {
         });
     }
 
-    getAge() {
-        this.setState({
-            age: new Date().getFullYear() - this.state.selectedDay.getFullYear()
-        });
-    }
+
 
 
     submitButtonClick(event) {
         let validated = event.target.checkValidity();
+        let birthday = new Date().getFullYear() - this.state.selectedDay.getFullYear();
         event.preventDefault();
 
 
-            if (validated) {
-                let comment = {
-                    age: this.state.age
-                };
 
-                axios.post('/comment', comment)
+            if (validated && birthday > 1) {
+                let birthday = {
+                    birthday: this.state.birthday
+                };
+                axios.post('/birthday', birthday)
                     .then(function (response) {
-                        console.log('A smile was submitted: ' + comment);
+                        console.log('A smile was submitted: ' + birthday);
                         console.log(response);
                     })
                     .catch(function (error) {
@@ -64,6 +60,8 @@ export default class Donate extends Component {
 
                 this.setState({validated: true});
             } else {
+
+
                 console.log('Nothing was submitted');
                 this.setState({validated: true});
             }
